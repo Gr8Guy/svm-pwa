@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CCF-PWA</title>
+  <link rel="canonical" href="https://Gr8Guy.github.io/ccf-pwa/" />
+  <link rel="manifest" href="/ccf-pwa/manifest.webmanifest">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+  <script language=JavaScript></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+  <style>
+    
+    body {
+min-height: 100vh;
+  background: #ff0000;
+  background: -webkit-linear-gradient(-65deg, #000000, #ff0000);
+  background: linear-gradient(-65deg, #000000, #ff0000);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+      .center {
+        text-align: center;
+        margin-top: 1em;
+      }
+      .add-button {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+      }
+
+      @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+        html {
+          transform: rotate(-90deg);
+          transform-origin: left top;
+          width: 100%;
+          height: 100vh;
+          overflow-x: hidden;
+          overflow-y: hidden;
+          position: absolute;
+          top: 100%;
+          left: 0;
+        }
+      }
+
+      audio {
+        width: 80%;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+        border-radius: 90px;
+        transform: scale(1.05);
+      }
+.card  {
+  margin-top: 2%;
+    }
+
+      /* The Modal (background) */
+      .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        padding-top: 2%;
+        /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: hidden;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.5);
+        /* Black w/ opacity */
+      }
+
+      /* Modal Content */
+      .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+
+      }
+
+      /* The Close Button */
+      .close {
+        color: #aaaaaa;
+        text-align: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      h6 {
+        position: fixed;
+        bottom: 1px;
+        right: 1px;
+      }
+      
+      .neonShadow{
+  
+  animation: glow 10s ; //timing?  infinite?
+  transition:10.5s;
+}
+
+
+@keyframes glow{
+  0%{
+  box-shadow: 5px 5px 20px rgb(0, 255, 0),-5px -5px 20px rgb(0, 255, 0);}
+  
+  50%{
+  box-shadow: 5px 5px 20px rgb(255, 255, 0),-5px -5px 20px rgb(255, 255, 0)
+  }
+  100%{
+  box-shadow: 5px 5px 20px rgb(255, 0, 0),-5px -5px 20px rgb(255, 0, 0)
+  }
+}
+
+      
+      .inner {
+width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.bpm {
+
+  font-weight: inherit;
+}
+
+.bpm-span {
+  padding: .2em;
+  text-align: center;
+
+}
+
+input[type="range"] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  background: transparent; /* Otherwise white in Chrome */
+  width: 55%;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-ms-track {
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 1.5em;
+  width: 0.5em;
+  border-radius: 40px;
+  background: red;
+  cursor: pointer;
+  margin-top: -0.6em;
+}
+
+input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none;
+  height: 1.5em;
+  width: 0.75em;
+  border-radius: 10px;
+  background: white;
+  cursor: pointer;
+  margin-top: -0.6em;
+}
+
+input[type="range"]::-ms-thumb {
+  -webkit-appearance: none;
+  height: 1.5em;
+  width: .75em;
+  border-radius: 10px;
+  background: black;
+  cursor: pointer;
+  margin-top: -0.6em;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 3px;
+    width:30%;
+  cursor: pointer;
+  background: #667;
+  border-radius: 10px;
+}
+
+input[type="range"]::-moz-range-track {
+  height: 20px;
+  cursor: pointer;
+  background: white;
+  border-radius: 10px;
+}
+
+input[type="range"]::-ms-track {
+  height: 20px;
+  cursor: pointer;
+  background: white;
+  border-radius: 10px;
+}
+
+    </style>
+
+  </head>
+<body>
+  <svg id="Double_T_4C" data-name="Double T_4C" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 325.23 381.04" width="10%"><defs><style>.cls-1{fill:#b3b4b6;}.cls-2{fill:#c00;}.cls-3{fill:#fff;}</style></defs><title>Artboard 1</title><g id="Double_T_4C-2" data-name="Double T_4C"><path id="Black" d="M325.23,124.48H279l.07,68.06H217.13v79.22h30.78V380.51H78.34V271.65h30.84l.06-79.11H46.82V124.48H0V0H325.23ZM255,374.24a5.51,5.51,0,1,1,5.52,5.67A5.48,5.48,0,0,1,255,374.24Zm5.52,6.8a6.78,6.78,0,1,0-6.89-6.8A6.77,6.77,0,0,0,260.53,381Zm-1.43-6.26h1.36l2.06,3.39h1.33l-2.22-3.45a2,2,0,0,0,2-2.15c0-1.54-.92-2.22-2.76-2.22h-3v7.82h1.18Zm0-1v-2.42h1.61c.82,0,1.7.18,1.7,1.15,0,1.2-.9,1.27-1.9,1.27Z"/><path id="Gray" class="cls-1" d="M125.67,168.31H102.92v15.93H56.74l7.05-7.51H95.27V161.38h53l-7.3,6.93ZM79.07,79.8V108H17.57l-8.79,8.16H86.51V87.35h31.74l7.42-7.54ZM310.36,108H247.42l-7,8.16H317.8V8.16l-7.44,8.16ZM202.05,79.64v44.68h7.54v-37h30.84l7-7.71Zm0,261.22H125.84l-7.51,7.64h91.56V302.33h0l-7.8,7.26h0v31.27Zm-23-179.48V309.58h.12l7.61-7.25h-.06v-134h15.32V286.94h31v78.22H93.94l-7.28,7.19H240.49V279.93h-30.9V168.31h15.26l7.37-6.93Zm84.47,15.35H232.22l-7.37,7.51H270.7V124.33l-7.16,7.2Z"/><path id="Red" class="cls-2" d="M79.91,161.38,63.79,176.73v-45.2H263.54l-15,15.11H79.91ZM202,309.62v0H179.18L163.47,325h23.8Zm46.53-163-16.34,14.74v15.35l16.34-15.35ZM47.11,46.54H279.06l31.3-30.21H17.57V108L47.11,78.6Zm231.94,0-31.64,33.1V108l31.64-30ZM125.67,79.81v44.52h38.58V46.54ZM186.83,302.3h23.08v6.48l23.15-21.66v-.19h-31l-15.32,15.39h.06Zm-61,7.4v31.15L140.67,325h22.8V146.63l-15.21,14.74V309.71Zm-7.51-7.37H141v-134H125.67V286.82H93.94v78.34l24.39-25.23Z"/><path id="White" class="cls-3" d="M247.42,108l-7,8.16V87.35l7-7.71ZM8.78,116.19,17.57,108V16.32H310.36l7.44-8.16H8.78Zm155.46,8.14H125.67V79.81l-7.42,7.54v37H56.74v59.91l7.05-7.51v-45.2H263.54l7.16-7.2H164.24ZM93.94,286.82h31.72V168.31H118V279.82H86.66v92.53l7.28-7.19ZM232.22,161.38l-7.37,6.93v15.93l7.37-7.51ZM202,309.59h0l7.8-7.26,0,0H186.83l0,0h0l-7.61,7.25H202Zm-83.7-7.26V348.5l7.51-7.64V309.71h22.41V161.38l-7.3,6.93v134Z"/></g></svg>
+  <div style="margin-top: 15%;"></div>
+<!-- Trigger/Open The Modal -->
+    <div class="center">
+      <div class="container-fluid">
+        <div class="jumbotron">
+          <h1 class="text-center hidden-xs-down"><b></b></h1>
+        </div>
+
+        <div id="timer-container" class="container timer-container">
+          <div class="row mb-6 mt-4">
+            
+            <div class="col-md-4 col-sm-12 mb-12 card-group">
+              <div id="timer2" class="mb-12 card  border border-secondary">
+                <div class="card-header bg-secondary text-white">
+                  <b1 style=" font-size: 20px;">Code Time</b1> <div class=" text-center mb-12 timerdisplay primarydisplay" style=" font-size: 20px; text-align: center;"
+                    data-timerid="1"> 00:00.00</div>                                   
+
+                </div>
+                <div class="card-block ">
+<br>
+                  <button type="button" id="startbutton1" class="btn btn-outline-success  btn-block col-md-4  mb-12 startbutton"
+                    onclick="startToggle();show_now();" data-timerid="1" style="text-align: center; font-size: 20px;">Start</button><div id="date_time_button"></div> <br>
+
+
+                    
+<div id=display style="font-size:11px;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12 mb-12 card-group">
+              <div id="timer2" class="mb-12 card  border border-secondary">
+                <div id="box" class="card-header bg-secondary text-white">
+                  <b1 style=" font-size: 20px;">Compression Time</b1>                  <div class="display-4 text-center mb-12 timerdisplay primarydisplay" style=" font-size: 20px;"
+                    data-timerid="2">00:00.00</div>
+                </div>
+                <div class="card-block ">
+                    <br>
+                  <button type="button" id="startbutton2" class="btn btn-outline-success  btn-block col-md-4  mb-12 startbutton"
+                    onclick="startToggle()" data-timerid="2" style="text-align: center; font-size: 20px;">Start</button>
+
+                  <p></p>
+                  <div id="percentage" class="col-md-12" style="text-align: center; font-size: 40px;">0%</div>
+                </div>
+              </div>
+            </div>
+
+<div class="col-md-4 col-sm-12 mb-12 card-group">
+              <div id="timer4" class="mb-12 card  border border-secondary">
+                <div class="card-header bg-secondary text-white">
+                  <b1 style=" font-size: 20px;">Metronome <font id="bpm" class="bpm">100</font> BPM</b1>
+
+                </div>
+                <div class="card-block ">
+    <div class="inner">
+      <span class="bpm-span">
+
+
+      <button id="dec">-</button>
+      <input type="range" min="100" max="120" step="1" value="100" id="slider" />
+      <button id="inc">+</button>
+<div>
+      <button id="play">PLAY</button>
+      <button id="stop">STOP</button>
+    </div>
+            </span>
+    </div>
+                    
+                </div>
+              </div>
+            </div>
+              
+             
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <h6>
+        <button type="button" class="btn btn-outline-dark col-md-4 mb-12 resetbutton" onclick="history.go(0)"
+                    data-timerid="1" style="text-align: center; font-size: 20px;">Reset</button>
+        &nbsp;
+        <button id="myBtn" class="btn btn-outline-light col-md-4 mb-12" style="text-align: center; font-size: 20px;">About</button>
+
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>This is a progressive web app (PWA) that can be installed on your mobile device by adding it to your homescreen. It is optimized to work offline.</p>
+
+          <p>Scan this code with your camera to share with other devices.<p><img src="img/qr.png" width="80%" /></p>
+          <p>
+            <div class="center">
+              Created and Maintained by <br /> Guy C. Gilbert and Jonathan Craddock
+            </div>
+          </p>
+        </div>
+      </div>
+    </h6>
+
+    <script>
+function show_now() { 
+var my_time = new Date(); 
+document.getElementById('display');
+    let html= new Date;
+    display.insertAdjacentHTML("beforeend", html)
+}
+
+      //Timer constructor function
+      function Timer(id, currentstarttime, mslogged) {
+        this.id = id,
+          this.latestStartTime = currentstarttime,
+          this.msLogged = mslogged,
+          this.displayms = 0,
+          this.running = false,
+          this.name = $('.timertitle[data-timerid="' + String(id + 1) + '"]').text()
+      }
+
+      var tickRunning = false;
+      var percentage = 0;
+      var percentageText = percentage + '%';
+
+      //Create a timer for every element with class "timerdisplay"
+      var timerarr = [];
+      for (var i = 0; i < $(".timerdisplay.primarydisplay").length; i++) {
+        timerarr[i] = new Timer(i, 0, 0);
+      }
+
+      function displayTime(timeridzero, ms) {
+        //Handles updating displays with tick time or final logged times. 
+        //Expects zero indexed timerid and a duration in ms
+        function msToTime(duration) {
+          //Converts millisecond durations into MM:ss.mmm
+
+          function pad(n, z) {
+            // Pad to 2 or 3 digits, default is 2
+            z = z || 2;
+            return ('00' + n).slice(-z);
+          }
+
+          var tenmilliseconds = parseInt((duration % 1000) / 10),
+            seconds = parseInt((duration / 1000) % 60),
+            minutes = parseInt((duration / (1000 * 60)) % 60)
+
+          minutes = (minutes < 10) ? "0" + minutes : minutes;
+          seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+          return pad(minutes) + ":" + pad(seconds) + "." + pad(tenmilliseconds, 2);
+        }
+
+        $('.timerdisplay[data-timerid="' + String(timeridzero + 1) + '"]').text(msToTime(ms));
+      }
+
+      function startToggle() {//Called when Start/Stop button toggled.
+        var timeridzero = parseInt(event.target.getAttribute("data-timerid")) - 1;
+
+        if (timerarr[timeridzero].running) {
+          stopTimerX(timeridzero);
+        } else {
+          startTimerX(timeridzero);
+        }
+        if(timeridzero == 1) toggleSound();
+
+        console.log("(zero indexed) timerid: " + timeridzero.toString() + ", running: " + timerarr[timeridzero].running
+          .toString());
+      }
+
+      function startTimerX(timeridzero) {
+        //Start/Resume a timer. Expects a zero-indexed timerid.
+        timerarr[timeridzero].latestStartTime = Date.now();
+        timerarr[timeridzero].running = true;
+
+        if (tickRunning == false) {
+          tickInitialise();
+        }
+
+        $('.startbutton[data-timerid="' + String(timeridzero + 1) + '"]')
+          .text("Stop")
+          .addClass("btn-outline-danger")
+          .removeClass("neonShadow")
+          .removeClass("btn-outine-success")
+        $('.resetbutton[data-timerid="' + String(timeridzero + 1) + '"]')
+          .addClass("btn-warning")
+          .removeClass("btn-outine-default")
+        $('.timertabledisplay[data-timerid="' + String(timeridzero + 1) + '"]')
+          .addClass("table-success")
+          .removeClass("table-info")
+
+      }
+
+      function stopTimerX(timeridzero) {
+        //Stop a timer. Expects a zero-indexed timerid.
+        //Updates display, sets running to false and changes stop button.
+        timerarr[timeridzero].msLogged += Date.now() - timerarr[timeridzero].latestStartTime;
+        timerarr[timeridzero].displayms = timerarr[timeridzero].msLogged;
+        timerarr[timeridzero].running = false;
+
+        $('.startbutton[data-timerid="' + String(timeridzero + 1) + '"]')
+          .text("Start")
+          .addClass("btn-outine-success")
+          .removeClass("btn-outline-danger")
+          .addClass("neonShadow");
+        $('.timertabledisplay[data-timerid="' + String(timeridzero + 1) + '"]')
+          .addClass("table-info")
+          .removeClass("table-success")
+
+        displayTime(timeridzero, timerarr[timeridzero].msLogged);
+      }
+
+      function resetTimerX(timeridzero) {
+        //Called when reset button pressed. Resets timer and display.
+        var timeridzero = parseInt(event.target.getAttribute("data-timerid")) - 1;
+        stopTimerX(timeridzero);
+
+        timerarr[timeridzero].msLogged = 0;
+        timerarr[timeridzero].displayms = 0;
+        $('.timerdisplay[data-timerid="' + String(timeridzero + 1) + '"]').text("00:00.00");
+
+        $('.resetbutton[data-timerid="' + String(timeridzero + 1) + '"]')
+          .addClass("btn-default")
+          .removeClass("btn-info")
+        $('.timertabledisplay[data-timerid="' + String(timeridzero + 1) + '"]')
+          .removeClass("table-info")
+          .removeClass("table-success");
+      }
+
+      function tickTimerX(timeridzero) {
+        //Ticks the specified timer up by 100ms
+        timerarr[timeridzero].displayms += 100;
+
+        /*
+        * This function begins running anytime a timer starts and runs the function to update
+        * the time that is displayed for a particular timer. Indicated via the timeridzero parameter.
+        * Each time the page loads, all of the timerdisplay items are gathered and stored in the
+        * timerarr array as Timer objects. The properties for a Timer object are shown on lines 133-138
+        * 
+        * With that in mind, the code below checks to see if both timers are running and if so
+        * calculates the percentage and updates the percentage cell in the table.
+        */
+        if (timerarr[0].running != false && timerarr[1].running != false) {
+          percentage = (timerarr[1].displayms / timerarr[0].displayms) * 100;
+          percentageText = percentage.toFixed(0) + '%';
+          $('#percentage').html(percentageText);
+
+
+          if (percentage > 80) { //Highlight green for successful CCF
+            $('#percentage').addClass("text-success").removeClass("text-danger");
+          } else { //Highlight red for unsuccessful CCF
+            $('#percentage').addClass("text-danger").removeClass("text-success");
+          }
+
+          if (percentage > 80) { //Highlight green for successful CCF
+            $('#box').addClass("bg-success").removeClass("bg-danger");
+          } else { //Highlight red for unsuccessful CCF
+            $('#box').addClass("bg-danger").removeClass("bg-success");
+          }
+
+          if (percentage > 80) { //Highlight green for successful CCF
+            $('#timer3').addClass("border-success").removeClass("border-danger");
+          } else { //Highlight red for unsuccessful CCF
+            $('#timer3').addClass("border-danger").removeClass("border-success");
+          }
+
+        }
+
+
+        displayTime(timeridzero, Math.round(timerarr[timeridzero].displayms.toFixed(1) / 100) * 100);
+      }
+
+      function tickInitialise() {
+        console.log('ticking timer...');
+        //Start up an interval to make all running timers tick. Shuts itself off once no timers are running
+        var runningTimers = timerarr.filter(function (timer) {
+          return timer.running == true;
+        });
+
+        tickRunning = true;
+        var tick = setInterval(function () {
+          runningTimers = timerarr.filter(function (timer) {
+            return timer.running == true;
+          });
+
+          if (runningTimers.length == 0) {
+            clearInterval(tick);
+            tickRunning = false;
+          }
+
+          for (var i = 0; i < runningTimers.length; i++) {
+            tickTimerX(runningTimers[i].id);
+          }
+        }, 100);
+      }
+
+      function nameChanged(timeridzero) {
+        //Updates name of timer object and name in the bottom table when call by input listener
+        timerarr[timeridzero].name = $('.timertitle[data-timerid="' + String(timeridzero + 1) + '"]').text();
+        $('.timertablename[data-timerid="' + String(timeridzero + 1) + '"]').text(timerarr[timeridzero].name);
+        if (timerarr[timeridzero].name.length > 40) {
+          //console.log("Timer name bug probably happened");
+          //console.log(timerarr[timeridzero].name);
+          alert("Timer name bug probably happened. Name is now:" + timerarr[timeridzero].name);
+        };
+      }
+
+      function toggleSound() {
+        const audio = document.querySelector(`audio[id="metronomeSound"]`);
+        if (!audio) return;
+        (!audio.paused) ? audio.pause() : audio.play();
+      }
+
+      //Add an event listener to call nameChanged() when a user edits one of the timer names
+      $(".timertitle").each(function () {
+        this.addEventListener("input", function () {
+          nameChanged(event.target.getAttribute("data-timerid") - 1);
+        });
+      });
+
+      $(".timertitle").on('keydown', function (e) {
+        if (e.which == 13 && e.shiftKey == false) {
+          document.activeElement.blur();
+          console.log($(this).is(":focus"));
+          return false;
+        }
+      });
+
+      try {
+        Typekit.load();
+      } catch (e) {}
+
+
+      // Get the modal
+      var modal = document.getElementById("myModal");
+
+      // Get the button that opens the modal
+      var btn = document.getElementById("myBtn");
+
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+
+      // When the user clicks the button, open the modal 
+      btn.onclick = function () {
+        modal.style.display = "block";
+      }
+
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function () {
+        modal.style.display = "none";
+      }
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+    </script>
+
+  <script>
+      if (navigator.serviceWorker) {
+        navigator.serviceWorker.register (
+          '/ccf-pwa/sw.js',
+          {scope: '/ccf-pwa/'}
+        )
+      }
+  </script>
+    <script>
+    $(document).ready(() => {
+  const slider = $("#slider");
+  const beep = new Audio(
+    "data:audio/flac;base64,ZkxhQwAAACIQABAAAARBAARBAfQBcAAAAZLfwZb9QVlTtnnZLOsaWczxhAAAKCAAAAByZWZlcmVuY2UgbGliRkxBQyAxLjMuMCAyMDEzMDUyNgAAAAD/+HQMAAGRJhgKxHRX63x+6QxXqTpCYAANDJgITNAmIhAB/5BgFt4iAfgBZHY4A9UZAAZ65QManTnQUAKnx8A+ZcwFun6gX1gMVIgAfaXgEml9KIzgfUBYAnhLwJl/Oek+A5rZADhx2ApN3s198CTrfAPyHMGRV3DcKAYAAwBJ7uA8wysUF8HYV6AUyIIKv/ObD0B7BRAOf6QFVnlVIrg0zuwGYTqCTP9rJXAWm4AC1HQDxVMnllwVg94CGPDDq6XrJRgQ2zwHp6wGR5tQFGh9dygZtwIXeHNK+AHAw8BZ34BSgBUY44Ze3IEt2uEhBfQg3BcaTA+MSB/rIUTNIUTWYN9hMdT2M/TYEg+cDC6KGzFJQAzj8TBBUujjHFLnsqB07TAj7JBa4qTwQY15pQ9rKxSdhzrJwxaKA3o/BKIsTkDYtGCwxtDRCIqzegQo2pAr9KD0mKmwtRJeuhMscnKzjNLLCC4CCDoYNaPiZmNPNIsdzTJkF0zHIRyDGDZzCLozKYLfNVZUYt6pWUiy7/Bjf5CyRUJ95iW1TLkIET7MJJU5yxARVwzCNBsIZHCVflJ5ZE+0K30dXKabEjNYdP+TulglDBSFPJNlCtxqLycmj5OeMkURsMFSXgrtnXLllFm5cySbjiZQKoshh0ASOArXdBJuJ9c2syJBjM8II1VJYFtSEVbCw3f80qnABkAClxxw8mPk8NdHt4q9gNy0UpWEuO2UUx3jZSuRqVkcoWnWIWa1ahV3Y3K5KbKMH879vqjUtUZMatwgfZeOMvsQlyisbQ71rIxGX9FhUSYvRHvF3xeunSYfQ4iRItSvuvzR5iO3xDFaEdARSGOC1fGIpY/hll/Z8dBI+J6u22KvVuDK2IiXW9V8Htkhxa94kLDPz25hsMC8qImvymxd70W8D5iDfsU9TYMYt5EIfJnAWr0bS7NbeHbQu6ZsuZyvTuhwMbc9XFv3q4b4amazBWwDvKfuyGSBrwrbr8+kkvhfZKs7C2FwoVooWXOnr/sWmZ5hWFSSpEtq0O6bjQhPR6Eguo8PmOz4SoKeIgpRmJZ1CEWpm1U6F/2UKJhBBJi0KeJ6kgEoPCeWSBmv85AOeDhOk/mJgciON6g0DZHbeVa7jIhYMBSP4ukvNIr36CvTjhkZCkWJk5godIxpiOjqiEnoJQ2K3HjKtYcY2CFWiXpIrqaGEIgef4gs+JXnhRm4GziHB2h/OIRB6BgfhgH4ap2DiTgVwIUN6FjaguFoE0uENThJRYJMOBCwg3zIOyKB00gOl4LXWC79gW14DOaCQAglUoEKCApZgc1YHC2AxzgJBoFcSBWWgICoBp+BEXgO64BeGAXYgMGoCoCAOYgEk4CGWAb5gB54A2SAWGgEfoAHyAINgDuYAkeAAbgBfoAgyAEEgAC4ARGADPgAf4AFyABYgAeIACGAAMgAaYAECABJgAagfd0="
+  );
+  let playing = false;
+  let intervalMS;
+  let id;
+
+  // console.log(sldr.prop("step"));
+
+  $("#play").on("click", (event) => {
+    event.preventDefault();
+    window.clearInterval(id);
+    id = interval(intervalMS);
+    playing = true;
+  });
+
+  $("#stop").on("click", (event) => {
+    event.preventDefault();
+    window.clearInterval(id);
+    playing = false;
+  });
+
+  $("#slider").on("input", (event) => {
+    event.preventDefault();
+    let value = +event.target.value;
+    intervalMS = 1000 / (value / 60); //get BPM
+    $("#bpm").html(`${value}`);
+    window.clearInterval(id);
+    if (playing) id = interval(intervalMS);
+  });
+
+  $("#inc").on("click", (event) => {
+    event.preventDefault();
+    const newVal = parseInt(slider.val()) + parseInt(slider.prop("step"));
+    slider.val(newVal);
+    slider.trigger("input");
+  });
+
+  $("#dec").on("click", (event) => {
+    event.preventDefault();
+    const newVal = parseInt(slider.val()) - parseInt(slider.prop("step"));
+    slider.val(newVal);
+    slider.trigger("input");
+  });
+
+  function playBeep() {
+    beep.play();
+  }
+
+  function interval(int = 666.66) {
+    return setInterval(playBeep, int);
+  }
+});
+
+    </script>
+  <script src="js/app.js"></script>
+</body>
+</html>

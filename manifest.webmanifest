@@ -1,0 +1,18 @@
+{
+  "version": "1.0.8",
+  "name": "CCF PWA",
+  "short_name": "CCF",
+  "description": "CCF PWA",
+  "scope": "/ccf-pwa/",
+  "start_url": "/ccf-pwa/",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "display": "standalone", 
+  "icons": [
+      {
+        "src": "/ccf-pwa/img/icon2.png",
+        "type": "image/png",
+        "sizes": "700x700"
+      }
+  ]
+}
